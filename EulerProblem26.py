@@ -43,7 +43,7 @@ def main():
                 pair.append(i)
                 pair.append(j)
 
-    return pair
+    return pair[0]*pair[1]
                 
 print(main())           
             
