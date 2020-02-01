@@ -52,7 +52,7 @@ def main(n):
     return len(distinct)
 
 s=dt.now()
-print(main(200))
+print(main(100))
 f=dt.now()
 print(f-s)
             
