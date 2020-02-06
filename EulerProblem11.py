@@ -26,7 +26,52 @@ for i in range(len(nums)):
     for j in range(len(nums)):
         nums[i][j]=int(nums[i][j])
 
+maximum=0
 for i in range(len(nums)):
     for j in range(len(nums)):
+        if (i-3)>=0:
+            p=nums[i][j]*nums[i-1][j]*nums[i-2][j]*nums[i-3][j]
+            if p >maximum:
+                maximum=p
+           
+        if (i-3)>=0 and (j+3)<=19:
+            p=nums[i][j]*nums[i-1][j+1]*nums[i-2][j+2]*nums[i-3][j+3]
+            if p >maximum:
+                maximum=p
+
+        if (j+3)<= 19:
+            p=nums[i][j]*nums[i][j+1]*nums[i][j+2]*nums[i][j+3]
+            if p >maximum:
+                maximum=p
+           
+        if (i+3)<= 19 and (j+3)<=19:
+            p=nums[i][j]*nums[i+1][j+1]*nums[i+2][j+2]*nums[i+3][j+3]
+            if p >maximum:
+                maximum=p
+
+        if (i+3)<= 19:
+            p=nums[i][j]*nums[i+1][j]*nums[i+2][j]*nums[i+3][j]
+            if p >maximum:
+                maximum=p
+           
+        if (i+3)<= 19 and (j-3)>=0:
+            p=nums[i][j]*nums[i+1][j-1]*nums[i+2][j-2]*nums[i+3][j-3]
+            if p >maximum:
+                maximum=p
+
+        if (j-3)>=0:
+            p=nums[i][j]*nums[i][j-1]*nums[i][j-2]*nums[i][j-3]
+            if p >maximum:
+                maximum=p
+           
+        if (j-3)>=0 and (i-3)>=0:
+            p=nums[i][j]*nums[i-1][j-1]*nums[i-2][j-2]*nums[i-3][j-3]
+            if p >maximum:
+                maximum=p
+
+print(maximum)
+
+        
+            
         
 
