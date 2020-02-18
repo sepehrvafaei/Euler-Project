@@ -13,7 +13,7 @@ def isPrime(n):
                 break
         return temp
 
-wanted=[]
+wanted=[23,37,53,73,313,317,373,797]
 for a in [2,3,5,7]:
     for b in[1,3,7,9]:
         if (a+b)%3 !=0:
@@ -78,3 +78,7 @@ for a in [2,3,5,7]:
 
 
 print(wanted)
+total=0
+for i in wanted:
+    total+=i
+print(total)
