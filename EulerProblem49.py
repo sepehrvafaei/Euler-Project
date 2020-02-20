@@ -1,35 +1,32 @@
-from itertools import permutations,combinations
-
 import math
-def isPrime(n):
-    if n==1:
-        return False
-    elif n<=0:
-        return False
-        
-    else:
-        temp=True
-        for i in range(2,int(math.sqrt(n))+1):
-            if n%i==0:
-                temp=False
-                break
-        return temp
+import itertools
+arr=[True for i in range(1,10000)]
+arr[0]=False
+arr[1]=False
+for i in range(2,100):
+    if arr[i]==True:
+        for j in range(i**i,9999,i):
+            arr[j]=False
 
-arr=list(combinations(list(range(10)),4))
-l=[]
-for i in arr:
-    temp=[]
-    var=False
-    l=list(permutations(list(i)))
-    num=0
-    for j in l:
-        if j[0]!=0:
-            num=j[0]*10**3+j[1]*10**2+j[2]*10+j[3]
-            if isPrime(num):
-                temp.append(num)
-                if len(temp)==3 and temp[1]-temp[0]==temp[2]-temp[1]:
-                    var=True
-                    break
-    if var==True:
-        break
-        print(temp)
+dic={}
+for i in range(1000,9999):
+    if arr[i]==True:
+        dic[i]=''.join(sorted(str(i)))
+
+d = {n:[k for k in dic.keys() if dic[k] == n] for n in set(dic.values())}
+
+for i in d.values():
+    if len(i)==3:
+        if abs(i[1]-i[0])==3330 and abs(i[2]-i[1])==3330:
+            print(i)
+    elif len(i)>3:
+        for j in itertools.combinations(i,3):
+            if abs(j[1]-j[0])==3330 and abs(j[2]-j[1])==3330:
+                print(j)
+
+
+
+
+    
+    
+        
