@@ -12,12 +12,13 @@ def numOfDistinctPrimeFactors(n):
 
     return count
 
-arr=[]
-for i in range(300,10000):
-    if numOfDistinctPrimeFactors(i)==4:
-        arr.append(i)
+c=1
+f=2*3*5*7
+while c<4:
+    f+=1
+    if numOfDistinctPrimeFactors(f)==4:
+        c+=1
+    else:
+        c=0
 
-print(arr)
-        
-                
-
+print(f-3)
