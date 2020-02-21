@@ -1,7 +1,4 @@
 import math
-import itertools
-
-import math
 def isPrime(n):
     if n==1:
         return False
@@ -34,19 +31,24 @@ for i in range(2,10**4):
 
 maximum=1
 wanted=0
+start=0
 for k in range(len(primes)):
-    sigma=0
-    i=k
-    while sigma<10*3 and i<len(primes):
+    sigma=primes[k]
+    i=k+1
+    count=1
+    temp=sigma
+    while sigma<10**6 and i<len(primes):
         sigma+=primes[i]
-        if sigma<100 and isPrime(sigma):
-            if i+1>maximum:
-                wanted=sigma
-                maximum=i
+        if sigma<10**6 and isPrime(sigma):
+            count=(i+1)-k
+            temp=sigma
         i+=1
-
-print(maximum)
-print(wanted)
-    
-    
+    if count>maximum:
+        maximum=count
+        wanted=temp
+        start=k
         
+
+print('number of consecutive primes in summation: ',maximum)
+print('prime sum: ',wanted)
+print('starting prime number in summation: ',primes[start])
